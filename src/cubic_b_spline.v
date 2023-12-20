@@ -17,7 +17,7 @@ pub fn cubic_b_spline_interp(points int, knots []f64, values []f64, start_deriv 
 	return [x_values, y_values]
 }
 
-fn newint_orig(x f64, a f64, b f64, u f64, v f64, up f64, vp f64) f64 {
+pub fn newint_orig(x f64, a f64, b f64, u f64, v f64, up f64, vp f64) f64 {
 	/*
 	include error handeling for
 	assert( b > a );
@@ -34,7 +34,7 @@ fn newint_orig(x f64, a f64, b f64, u f64, v f64, up f64, vp f64) f64 {
 	return (lower + (0.16666666666666666666) * (c + d)) * inv_ba
 }
 
-fn newint__noinv(x f64, a f64, b f64, u f64, v f64, up f64, vp f64) f64 {
+pub fn newint__noinv(x f64, a f64, b f64, u f64, v f64, up f64, vp f64) f64 {
 	/*
 	include error handeling for
 	assert( b > a );
@@ -51,7 +51,7 @@ fn newint__noinv(x f64, a f64, b f64, u f64, v f64, up f64, vp f64) f64 {
 	return (lower + (0.16666666666666666666) * (c + d)) / ba
 }
 
-fn newint__vol(x f64, a f64, b f64, u f64, v f64, up f64, vp f64) f64 {
+pub fn newint__vol(x f64, a f64, b f64, u f64, v f64, up f64, vp f64) f64 {
 	/*
 	include error handeling for
 	assert( b > a );
@@ -69,7 +69,7 @@ fn newint__vol(x f64, a f64, b f64, u f64, v f64, up f64, vp f64) f64 {
 	return (lower + (0.16666666666666666666) * (c + d)) * inv_ba
 }
 
-fn new_second_derivative(knots []f64, values []f64, start_deriv f64, end_deriv f64) []f64 {
+pub fn new_second_derivative(knots []f64, values []f64, start_deriv f64, end_deriv f64) []f64 {
 	n := knots.len
 	mut c_p := []f64{cap: n}
 	mut ypp := []f64{cap: n}
